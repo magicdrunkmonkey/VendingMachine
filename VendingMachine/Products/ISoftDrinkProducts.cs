@@ -4,7 +4,7 @@ using System.Text;
 
 namespace VendingMachine.Products
 {
-    class ToyProducts  //Product type
+    public interface ISoftDrinkProducts //Product type
     {
         /*
          * Each product type should be its own class.
@@ -18,15 +18,15 @@ namespace VendingMachine.Products
          *   ▪ Use, to put the product to use once it has been purchased 
          *     (output a string message how to use the product)
         */
-        public string Products(int index)
+        public string Softdrinks(int index)
         {
             // Create a list of products.
             List<string> product = new List<string>();
 
             // Adding elements to List
-            product.Add("Toy car");
-            product.Add("Toy boat");
-            product.Add("Toy plane");
+            product.Add("Snickers");
+            product.Add("Cloetta kex");
+            product.Add("Bounty");
 
             //Convert list to array (assignment requirement)            
             string[] arrayProducts = product.ToArray();

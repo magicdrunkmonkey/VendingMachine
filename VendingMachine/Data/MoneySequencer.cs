@@ -5,7 +5,7 @@ using VendingMachine.Interface;
 
 namespace VendingMachine.Data
 {
-    public class MoneySequencer : IVending
+    public class MoneySequencer
     {
         //In PersonSequencer creates a private static int variable called personId.
         private static int moneyPool;

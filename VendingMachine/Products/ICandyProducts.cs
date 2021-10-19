@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace VendingMachine.Products
+namespace VendingMachine.Products   //Product type
 {
-    class SoftDrinkProducts //Product type
+    public interface ICandyProducts
     {
         /*
          * Each product type should be its own class.
@@ -18,15 +18,15 @@ namespace VendingMachine.Products
          *   ▪ Use, to put the product to use once it has been purchased 
          *     (output a string message how to use the product)
         */
-        public string Products(int index)
+        public string Candys(int index)
         {
             // Create a list of products.
             List<string> product = new List<string>();
 
             // Adding elements to List
-            product.Add("Snickers");
-            product.Add("Cloetta kex");
-            product.Add("Bounty");
+            product.Add("Coca Cola");
+            product.Add("Zingo");
+            product.Add("7up");
 
             //Convert list to array (assignment requirement)            
             string[] arrayProducts = product.ToArray();

@@ -18,20 +18,21 @@ namespace VendingMachine.Products   //Product type
          *   ▪ Use, to put the product to use once it has been purchased 
          *     (output a string message how to use the product)
         */
-        public string Candys(int index)
+        public string[] CandyList()
         {
             // Create a list of products.
-            List<string> product = new List<string>();
+            List<string> candy = new List<string>();
 
             // Adding elements to List
-            product.Add("Coca Cola");
-            product.Add("Zingo");
-            product.Add("7up");
+            candy.Add("Coca Cola");
+            candy.Add("Zingo");
+            candy.Add("7up");
 
             //Convert list to array (assignment requirement)            
-            string[] arrayProducts = product.ToArray();
+            string[] arrayProducts = candy.ToArray();
+            
 
-            return arrayProducts[index];
+            return arrayProducts;
         }
     }
 }

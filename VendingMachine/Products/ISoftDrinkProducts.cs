@@ -18,20 +18,20 @@ namespace VendingMachine.Products
          *   ▪ Use, to put the product to use once it has been purchased 
          *     (output a string message how to use the product)
         */
-        public string Softdrinks(int index)
+        public string[] Softdrinks()
         {
             // Create a list of products.
-            List<string> product = new List<string>();
+            List<string> softdrink = new List<string>();
 
             // Adding elements to List
-            product.Add("Snickers");
-            product.Add("Cloetta kex");
-            product.Add("Bounty");
+            softdrink.Add("Snickers");
+            softdrink.Add("Cloetta kex");
+            softdrink.Add("Bounty");
 
             //Convert list to array (assignment requirement)            
-            string[] arrayProducts = product.ToArray();
+            string[] arrayProducts = softdrink.ToArray();
 
-            return arrayProducts[index];
+            return arrayProducts;
         }
     }
 }

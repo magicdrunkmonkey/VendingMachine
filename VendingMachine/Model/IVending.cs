@@ -8,7 +8,7 @@ namespace VendingMachine.Interface
     {
         //Must have for assignment
         string Purchase();      //to buy a product.
-        string ShowAll();       //show all products.        
+        string ShowAll();       //show all products with price.        
         int InsertMoney();      //add money to the pool.        
         int EndTransaction();   //returns money left in appropriate amount of change.
 

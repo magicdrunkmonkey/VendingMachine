@@ -1,6 +1,6 @@
 ﻿using System;
 using VendingMachine.Model;
-
+using VendingMachine.Products;
 
 namespace VendingMachine
 {
@@ -8,6 +8,16 @@ namespace VendingMachine
     {
         static void Main(string[] args)
         {
+
+            VendingMachine.Model.VendingMachine vendingMachine = new VendingMachine.Model.VendingMachine();
+            CandyProducts candy0 = new CandyProducts();
+
+            vendingMachine.listOfProducts.Add(candy0);
+
+
+
+
+
             bool keepLooping = true;
             while (keepLooping)
             {

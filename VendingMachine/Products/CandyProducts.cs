@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using VendingMachine.Model;
 
 namespace VendingMachine.Products   //Product type
 {
-    public interface ICandyProducts
+    public class CandyProducts : Product
     {
         /*
          * Each product type should be its own class.
@@ -18,6 +19,23 @@ namespace VendingMachine.Products   //Product type
          *   ▪ Use, to put the product to use once it has been purchased 
          *     (output a string message how to use the product)
         */
+
+        //Propertys variabler
+        string sugar;        
+
+        //Metod (member) (Funktion)
+        public new string Examine()
+        {
+            return base.Examine() + $"CandyInfo: {sugar}";
+        }
+
+        public new string Use()
+        {
+            return null;
+        }
+
+        /* Attempt1 wrong way
+        //List of Candys
         public string[] CandyList()
         {
             // Create a list of products.
@@ -33,6 +51,6 @@ namespace VendingMachine.Products   //Product type
             
 
             return arrayProducts;
-        }
+        }*/
     }
 }

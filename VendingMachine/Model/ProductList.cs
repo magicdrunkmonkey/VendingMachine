@@ -6,14 +6,14 @@ using System.Linq;
 
 namespace VendingMachine.Model
 {
-    class ProductList : ICandyProducts, IToyProducts, ISoftDrinkProducts
+    class ProductList
     {
         //Merge product type lists from ICandyProducts, IToyProducts, ISoftDrinkProducts        
 
         public string Info()
         {
             //return $"{IInformation.INFOTEXT}\n {Name}\n {Phone}\n{ContactAdress}";
-            return $"{ICandyProducts.}\n {Name}\n {Phone}\n{ContactAdress}";
+            return $"{CandyProducts.}\n {Name}\n {Phone}\n{ContactAdress}";
         }
 
         //Misslyckade experiment
@@ -59,4 +59,5 @@ namespace VendingMachine.Model
                 return tasksToReturn;
             }
         }
+    }
 }

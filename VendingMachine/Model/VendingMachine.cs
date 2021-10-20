@@ -23,19 +23,24 @@ namespace VendingMachine.Model
         public List<Product> ListOfProducts { get => listOfProducts; set => listOfProducts = value; }
 
         //Encapsulasion (security)
-        public void addProduct(Product P)
+        public void addProduct(Product productEncapsuled)
         {
-            if (string.IsNullOrEmpty(P.Name))
+            if (string.IsNullOrEmpty(productEncapsuled.Name))
             {
                 throw new ArgumentException("Not a valid name.");
             }            
-            ListOfProducts.Add(P);            
+            ListOfProducts.Add(productEncapsuled);            
+        }
+
+        public void addMoney(int m)
+        {
+            moneyPool=InsertMoney();
         }
 
         //Constructor
-        public VendingMachine()
+        public VendingMachine()             //Does not seem to be needed?
         {
-            moneyPool = InsertMoney();
+            //moneyPool = InsertMoney();
         }
 
         //Metod (member) (Funktion)

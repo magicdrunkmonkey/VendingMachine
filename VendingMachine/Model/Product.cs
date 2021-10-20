@@ -26,7 +26,7 @@ namespace VendingMachine.Model
         } 
         public string Use()     //, to put the product to use once it has been purchased(output a string message how to use the product)
         { 
-            return null;
+            return Info;
         } 
     }
 }

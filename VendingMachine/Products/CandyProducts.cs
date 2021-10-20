@@ -33,12 +33,13 @@ namespace VendingMachine.Products   //Product type
         //Metod (member) (Funktion)
         public new string Examine()
         {
-            return base.Examine() + $"Candy Info: {sugar}";
+            return base.Examine() + $"One {Name} candy costs {Price}kr.";
         }
 
         public new string Use()
         {
-            return null;
+            //if (Type == "Candy") ;
+            return base.Use() + $"Eating the {Name}.";
         }
 
         /* Attempt1 wrong solution

@@ -22,9 +22,9 @@ namespace VendingMachine
             SoftDrinkProducts softdrink2 = new SoftDrinkProducts("7up", 13, "Softdrink");
 
             //List of toys name, price, type
-            ToyProducts toy0 = new ToyProducts("Pepsi", 8, "Toy");
-            ToyProducts toy1 = new ToyProducts("Fanta", 11, "Toy");
-            ToyProducts toy2 = new ToyProducts("7up", 13, "Toy");
+            ToyProducts toy0 = new ToyProducts("plane", 8, "Toy");
+            ToyProducts toy1 = new ToyProducts("car", 11, "Toy");
+            ToyProducts toy2 = new ToyProducts("boat", 13, "Toy");
 
             //Listed products
             vendingMachine.listOfProducts.Add(candy0);

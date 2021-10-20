@@ -33,12 +33,12 @@ namespace VendingMachine.Products
         //Metod (member) (Funktion)
         public new string Examine()
         {
-            return base.Examine() + $"Softdrink Info: {sugar}";
+            return base.Examine() + $"One {Name} softdrink costs {Price}kr.";
         }
 
         public new string Use()
         {
-            return null;
+            return base.Use() + $"Drinking the {Name}.";
         }
 
         /* Attempt1 wrong solution

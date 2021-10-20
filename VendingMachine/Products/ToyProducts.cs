@@ -22,7 +22,7 @@ namespace VendingMachine.Products
 
         //Propertys variabler
         string sugar;
-        string Type { get; set; }
+        public string Type { get; set; }
 
         //Constructor
         public ToyProducts(string name, int price, string type) : base(name, price)

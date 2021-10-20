@@ -7,7 +7,7 @@ namespace VendingMachine.Model
     public abstract class Product
     {
         //Propertys variabler
-        int price;
+        private int price;
         public string Name { get; set; }
         public int Price { get { return price; } set { price = value; } }
         public string Info { get; set; }

@@ -11,22 +11,26 @@ namespace VendingMachine.Model
     public class VendingMachine : IVending
     {
         //Fields, declare, initialize
-        private readonly int[] moneyValue = { 1, 5, 10, 20, 50, 100, 1000 };    //Currency values        
-        public List<Product> listOfProducts = new List<Product>();
+        private readonly int[] moneyValue = { 1, 5, 10, 20, 50, 100, 500, 1000 };   //Currency values        
+        private List<Product> listOfProducts = new List<Product>();
+        private int moneyPool;                                                      //Added
 
         //Getters & Setters
-        public int moneyPool { get; set; }          //Added
         public int endTransaction { get; set; }     //Assignment requirement
         public int insertMoney { get; set; }        //Assignment requirement
         public string purchase { get; set; }        //Assignment requirement
         public string showAll { get; set; }         //Assignment requirement
+        public List<Product> ListOfProducts { get => listOfProducts; set => listOfProducts = value; }
 
+        public void addProduct(Product P)
+        {
+            ListOfProducts.Add(P);            
+        }
 
         //Constructor
         public VendingMachine()
         {
-            MoneyPool = moneyPool;
-
+            moneyPool = InsertMoney();
         }
 
         //Metod (member) (Funktion)

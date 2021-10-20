@@ -27,15 +27,15 @@ namespace VendingMachine
             ToyProducts toy2 = new ToyProducts("boat", 13, "Toy");
 
             //Listed products
-            vendingMachine.listOfProducts.Add(candy0);
-            vendingMachine.listOfProducts.Add(candy1);
-            vendingMachine.listOfProducts.Add(candy2);
-            vendingMachine.listOfProducts.Add(softdrink0);
-            vendingMachine.listOfProducts.Add(softdrink1);
-            vendingMachine.listOfProducts.Add(softdrink2);
-            vendingMachine.listOfProducts.Add(toy0);
-            vendingMachine.listOfProducts.Add(toy1);
-            vendingMachine.listOfProducts.Add(toy2);
+            vendingMachine.addProduct(candy0);
+            vendingMachine.addProduct(candy1);
+            vendingMachine.addProduct(candy2);
+            vendingMachine.addProduct(softdrink0);
+            vendingMachine.addProduct(softdrink1);
+            vendingMachine.addProduct(softdrink2);
+            vendingMachine.addProduct(toy0);
+            vendingMachine.addProduct(toy1);
+            vendingMachine.addProduct(toy2);
 
             bool keepLooping = true;
             while (keepLooping)

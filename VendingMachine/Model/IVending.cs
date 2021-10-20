@@ -10,7 +10,7 @@ namespace VendingMachine.Interface
         string Purchase();      //to buy a product.
         string ShowAll();       //show all products.        
         int InsertMoney();      //add money to the pool.        
-        int EndTransaction();  //returns money left in appropriate amount of change.
+        int EndTransaction();   //returns money left in appropriate amount of change.
 
         //Adding
         int MoneyPool();

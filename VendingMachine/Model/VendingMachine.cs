@@ -16,10 +16,10 @@ namespace VendingMachine.Model
 
         //Getters & Setters
         public int MoneyPool { get; set; }          //Added
-        public int EndTransaction { get; set; }     //Assignment
-        public int InsertMoney { get; set; }        //Assignment
-        public string Purchase { get; set; }        //Assignment
-        public string ShowAll { get; set; }         //Assignment
+        public int EndTransaction { get; set; }     //Assignment requirement
+        public int InsertMoney { get; set; }        //Assignment requirement
+        public string Purchase { get; set; }        //Assignment requirement
+        public string ShowAll { get; set; }         //Assignment requirement
 
 
         //Constructor
@@ -30,27 +30,27 @@ namespace VendingMachine.Model
         }
 
         //Metod (member) (Funktion)
-        public int EndTransaction()
+        public int EndTransaction()                  //Assignment requirement
         {
             throw new NotImplementedException();
         }
 
-        public int InsertMoney()
+        public int InsertMoney()                    //Assignment requirement
         {
             throw new NotImplementedException();
         }
 
-        public string Purchase()
+        public string Purchase()                    //Assignment requirement
         {
             throw new NotImplementedException();
         }
 
-        public string ShowAll()
+        public string ShowAll()                     //Assignment requirement
         {
             throw new NotImplementedException();
         }            
 
-        public int MoneyPool()
+        public int MoneyPool()                      //Assignment requirement
         {
             //return base.MoneyPool() ;
             throw new NotImplementedException();

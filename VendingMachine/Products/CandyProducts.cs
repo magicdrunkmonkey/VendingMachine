@@ -22,13 +22,13 @@ namespace VendingMachine.Products   //Product type
 
         //Propertys variabler
         string sugar;
-        string Type { get; set; }
+        string Type { get ; set; }
 
         //Constructor
         public CandyProducts(string name, int price, string type) : base(name, price)
         {            
             Type = type;
-        }
+        }        
 
         //Metod (member) (Funktion)
         public new string Examine()

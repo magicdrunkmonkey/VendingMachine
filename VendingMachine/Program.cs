@@ -26,6 +26,7 @@ namespace VendingMachine
             ToyProducts toy1 = new ToyProducts("Fanta", 11, "Softdrink");
             ToyProducts toy2 = new ToyProducts("7up", 13, "Softdrink");
 
+            //Listed products
             vendingMachine.listOfProducts.Add(candy0);
             vendingMachine.listOfProducts.Add(candy1);
             vendingMachine.listOfProducts.Add(candy2);

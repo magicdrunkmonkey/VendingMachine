@@ -15,15 +15,15 @@ namespace VendingMachine.Model
         public List<Product> listOfProducts = new List<Product>();
 
         //Getters & Setters
-        public int MoneyPool { get; set; }          //Added
-        public int EndTransaction { get; set; }     //Assignment requirement
-        public int InsertMoney { get; set; }        //Assignment requirement
-        public string Purchase { get; set; }        //Assignment requirement
-        public string ShowAll { get; set; }         //Assignment requirement
+        public int moneyPool { get; set; }          //Added
+        public int endTransaction { get; set; }     //Assignment requirement
+        public int insertMoney { get; set; }        //Assignment requirement
+        public string purchase { get; set; }        //Assignment requirement
+        public string showAll { get; set; }         //Assignment requirement
 
 
         //Constructor
-        public VendingMachine(int moneyPool, int endTransaction, int insertMoney, string purchase, string showAll)
+        public VendingMachine()
         {
             MoneyPool = moneyPool;
 

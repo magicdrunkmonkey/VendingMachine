@@ -22,8 +22,13 @@ namespace VendingMachine.Model
         public string showAll { get; set; }         //Assignment requirement
         public List<Product> ListOfProducts { get => listOfProducts; set => listOfProducts = value; }
 
+        //Encapsulasion (security)
         public void addProduct(Product P)
         {
+            if (string.IsNullOrEmpty(P.Name))
+            {
+                throw new ArgumentException("Not a valid name.");
+            }            
             ListOfProducts.Add(P);            
         }
 

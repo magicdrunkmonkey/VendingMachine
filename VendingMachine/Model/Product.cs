@@ -4,7 +4,7 @@ using System.Text;
 
 namespace VendingMachine.Model
 {
-    public class Product
+    public abstract class Product
     {
         //Propertys variabler
         int price;

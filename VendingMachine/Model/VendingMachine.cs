@@ -15,6 +15,9 @@ namespace VendingMachine.Model
 
         public List<Product> listOfProducts = new List<Product>();
 
+        
+
+
         /* Example help
         Person person0 = new Person("Kalle", "+46123456", "Skövde, bogatan 5");
 

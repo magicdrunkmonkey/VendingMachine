@@ -7,8 +7,9 @@ namespace VendingMachine.Model
     public class Product
     {
         //Propertys variabler
+        int price;
         public string Name { get; set; }
-        public int Price { get; set; }
+        public int Price { get { return price; } set { price = value; } }
         public string Info { get; set; }
 
         //Constructor

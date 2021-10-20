@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using VendingMachine.Model;
 
 namespace VendingMachine.Products
 {
-    public class SoftDrinkProducts //Product type
+    public class SoftDrinkProducts : Product
     {
         /*
          * Each product type should be its own class.
@@ -18,6 +19,29 @@ namespace VendingMachine.Products
          *   ▪ Use, to put the product to use once it has been purchased 
          *     (output a string message how to use the product)
         */
+                
+        //Propertys variabler
+        string sugar;
+        string Type { get; set; }
+
+        //Constructor
+        public SoftDrinkProducts(string name, int price, string type) : base(name, price)
+        {            
+            Type = type;
+        }
+
+        //Metod (member) (Funktion)
+        public new string Examine()
+        {
+            return base.Examine() + $"Softdrink Info: {sugar}";
+        }
+
+        public new string Use()
+        {
+            return null;
+        }
+
+        /* Attempt1 wrong solution
         public string[] Softdrinks()
         {
             // Create a list of products.
@@ -32,6 +56,6 @@ namespace VendingMachine.Products
             string[] arrayProducts = softdrink.ToArray();
 
             return arrayProducts;
-        }
+        }*/
     }
 }

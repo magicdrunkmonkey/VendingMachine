@@ -21,12 +21,19 @@ namespace VendingMachine.Products   //Product type
         */
 
         //Propertys variabler
-        string sugar;        
+        string sugar;
+        string Type { get; set; }
+
+        //Constructor
+        public CandyProducts(string name, int price, string type) : base(name, price)
+        {            
+            Type = type;
+        }
 
         //Metod (member) (Funktion)
         public new string Examine()
         {
-            return base.Examine() + $"CandyInfo: {sugar}";
+            return base.Examine() + $"Candy Info: {sugar}";
         }
 
         public new string Use()
@@ -34,7 +41,7 @@ namespace VendingMachine.Products   //Product type
             return null;
         }
 
-        /* Attempt1 wrong way
+        /* Attempt1 wrong solution
         //List of Candys
         public string[] CandyList()
         {

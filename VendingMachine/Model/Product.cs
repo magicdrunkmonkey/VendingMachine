@@ -8,9 +8,16 @@ namespace VendingMachine.Model
     {
         //Propertys variabler
         public string Name { get; set; }
-        public string Price { get; set; }
+        public int Price { get; set; }
         public string Info { get; set; }
-        
+
+        //Constructor
+        public Product(string name, int price)
+        {
+            Name = name;
+            Price = price;            
+        }
+
         //Metod (member) (Funktion)
         public string Examine()    //, to show the product’s price and info
         {    

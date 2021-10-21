@@ -98,22 +98,27 @@ namespace VendingMachine
                             Console.WriteLine("Not valid number");
                         }
 
-                        if (moneyChoice <= 8 || moneyChoice != 0)
+                        if (moneyChoice <= 8 && moneyChoice != 0)
                         {
+                            Console.Clear();
                             decision = --moneyChoice;
+                            vendingMachine.AddMoney(decision);
                         }
                         else
                         {
-                            Console.WriteLine("Not a valid option!");
+                            Console.Clear();
+                            Console.WriteLine("Not a valit option!");
                         }
 
-                        vendingMachine.AddMoney(decision);
+                        
                         Console.WriteLine();
-                        Console.Clear();
+                        //Console.Clear();
                         break;
                     case 3:
                         break;
                     case 4:
+                        Console.Clear();
+                        Console.WriteLine("Returning: " + vendingMachine.EndTransaction());
                         break;
                     case 0:
                         keepLooping = false;

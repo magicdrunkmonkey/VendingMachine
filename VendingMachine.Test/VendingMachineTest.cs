@@ -65,9 +65,19 @@ namespace VendingMachine.Test
             //Arrange
             VendingMachine.Model.VendingMachine vendingMachine = new Model.VendingMachine();
             vendingMachine.moneyPool = 100;
-            int indexProductList = 3;               
+            int indexProductList = 2;               
             string expectedValue = "Bounty";
             string actualValue = null;
+
+            //Populate produktlist
+            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy");
+            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy");
+            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy");
+            vendingMachine.addProduct(candy0);
+            vendingMachine.addProduct(candy1);
+            vendingMachine.addProduct(candy2);
+
+            vendingMachine.BridgeToVendingMachine(vendingMachine.ListOfProducts);
 
             //Act
             vendingMachine.MakeAPurchase(indexProductList);   //Set index for the product purchase "Bounty"

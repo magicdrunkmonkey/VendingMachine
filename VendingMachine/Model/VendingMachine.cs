@@ -45,10 +45,10 @@ namespace VendingMachine.Model
             moneyPool=InsertMoney();
         }
         
-        public void BridgeToVendingMachine(List<Product> listOfProducts)
+        public Product[] BridgeToVendingMachine(List<Product> listOfProducts)
         {
             purchaseList = listOfProducts.ToArray();   //Turn collection into one array.
-            
+            return purchaseList;
         }
 
         public void MakeAPurchase(int iP)
@@ -79,7 +79,7 @@ namespace VendingMachine.Model
 
         public Product Purchase()                    //Assignment requirement
         {
-            purchaseList = ListOfProducts.ToArray();
+            //purchaseList = ListOfProducts.ToArray();
             Product bought = purchaseList[indexPurchase];        //Pick out the product to buy.
             return bought; 
             //throw new NotImplementedException();

@@ -21,8 +21,8 @@ namespace VendingMachine.Products   //Product type
         */
 
         //Propertys variabler
-        string sugar;
-        string Type { get ; set; }
+        string type;
+        public string Type { get { return type; } set { type = value; } }
 
         //Constructor
         public CandyProducts(string name, int price, string type) : base(name, price)

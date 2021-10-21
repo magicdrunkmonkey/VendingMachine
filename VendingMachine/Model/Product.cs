@@ -6,11 +6,10 @@ namespace VendingMachine.Model
 {
     public abstract class Product
     {
-        //Propertys variabler
-        //private readonly int productId;
+        //Propertys variabler                
         private int price;
-        
-        public string Name { get; set; }
+        private string name;
+        public string Name { get { return name; } set { name = value; } }
         public int Price { get { return price; } set { price = value; } }
         public string Info { get; set; }
 

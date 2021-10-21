@@ -42,42 +42,20 @@ namespace VendingMachine
             bool keepLooping = true;
             while (keepLooping)
             {
+                Console.WriteLine("Vending Machine\n" +
+                                  "---------------\n" +
+                                  "1) Show all products\n" +
+                                  "2) Insert money\n" +
+                                  "3) Purches a product\n" +
+                                  "4) Return change\n");
+                Console.WriteLine("Moneypool: " + vendingMachine.moneyPool);
+
+                Console.Write("Enter choice: ");
+                int choice = 0;
                 try
                 {
-                    Console.WriteLine("Vending Machine\n" +
-                                      "---------------\n" +
-                                      "1) Show all products\n" +
-                                      "2) Insert money\n" +
-                                      "3) Purches a product\n" +
-                                      "4) Return change\n");
-
-                    Console.Write("Enter choice: ");
-                    var choice = int.Parse(Console.ReadLine() ?? "");
+                    choice = int.Parse(Console.ReadLine() ?? "");
                     Console.ForegroundColor = ConsoleColor.Green;
-                    switch (choice)
-                    {
-                        case 1:
-                            vendingMachine.ShowAll();
-                            break;
-                        case 2:
-
-                            break;
-                        case 3:
-                            break;
-                        case 4:
-                            break;
-                        case 0:
-                            keepLooping = false;
-                            break;
-                        default:
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("That is not a valid choice!");
-                            break;
-                    }
-                    Console.ResetColor();
-                    Console.WriteLine("Hit any key to continue!");
-                    Console.ReadKey();
-                    Console.Clear();
                 }
                 catch
                 {
@@ -86,6 +64,71 @@ namespace VendingMachine
                     Console.WriteLine("That is not a valid Choice!");
                     Console.ResetColor();
                 }
+                switch (choice)
+                {
+                    case 1:
+                        Console.Clear();
+                        Console.WriteLine("Products & Price\n" +
+                                          "-------------------------------");
+                        vendingMachine.ShowAll();
+                        Console.WriteLine();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        Console.WriteLine("Insert Money\n" +
+                                          "-------------------------------\n" +
+                                          "1) 1kr\n" +
+                                          "2) 5kr\n" +
+                                          "3) 10kr\n" +
+                                          "4) 20kr\n" +
+                                          "5) 50kr\n" +
+                                          "6) 100kr\n" +
+                                          "7) 500kr\n" +
+                                          "8) 1000kr\n");
+                        Console.WriteLine("Moneypool: " + vendingMachine.moneyPool);
+                        Console.Write("Enter choice: ");
+                        int moneyChoice = 0;
+                        int decision = 0;
+                        try
+                        {
+                            moneyChoice = int.Parse(Console.ReadLine() ?? "");
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Not valid number");
+                        }
+
+                        if (moneyChoice <= 8 || moneyChoice != 0)
+                        {
+                            decision = --moneyChoice;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Not a valid option!");
+                        }
+
+                        vendingMachine.AddMoney(decision);
+                        Console.WriteLine();
+                        Console.Clear();
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 0:
+                        keepLooping = false;
+                        break;
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("That is not a valid choice!");
+                        break;
+                }
+                
+                Console.ResetColor();
+                    //Console.WriteLine("Hit any key to continue!");
+                    //Console.ReadKey();
+                    //Console.Clear();
+                               
             }
         }
     }

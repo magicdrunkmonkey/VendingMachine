@@ -88,8 +88,23 @@ namespace VendingMachine.Model
         public void ShowAll()                     //show all products with price. //Assignment requirement
         {
             foreach (Product product in listOfProducts)
-            {               
-                Console.WriteLine(product.Examine());
+            {
+                if(product is ToyProducts)
+                {
+                    Console.WriteLine((product as ToyProducts).Examine());
+                }
+                else if(product is CandyProducts)
+                {
+                    Console.WriteLine((product as CandyProducts).Examine());
+                }
+                else if (product is SoftDrinkProducts)
+                {
+                    Console.WriteLine((product as SoftDrinkProducts).Examine());
+                }
+                else
+                {
+                    Console.WriteLine("There is no more products");
+                }
             }
 
             //throw new NotImplementedException();

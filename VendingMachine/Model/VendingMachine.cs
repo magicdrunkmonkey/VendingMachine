@@ -13,8 +13,8 @@ namespace VendingMachine.Model
         //Fields, declare, initialize
         private readonly int[] moneyValue = { 1, 5, 10, 20, 50, 100, 500, 1000 };   //Currency values        
         private List<Product> listOfProducts = new List<Product>();
-        private int moneyPool;
-        private int index;
+        public int moneyPool;
+        public int index;
 
         //Getters & Setters
         public int endTransaction { get; set; }     //Assignment requirement
@@ -48,7 +48,10 @@ namespace VendingMachine.Model
         //Metod (member) (Funktion)
         public int EndTransaction()                  //Assignment requirement
         {
-            throw new NotImplementedException();
+            int returningMoney = moneyPool;
+            moneyPool = 0;
+            return returningMoney;
+            //throw new NotImplementedException();
         }
 
         public int InsertMoney()                    //Assignment requirement

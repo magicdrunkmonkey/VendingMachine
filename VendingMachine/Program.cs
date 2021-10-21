@@ -37,7 +37,7 @@ namespace VendingMachine
             vendingMachine.addProduct(toy1);
             vendingMachine.addProduct(toy2);
 
-            //Product[] puchaseList = listOfProducts.ToArray();
+            vendingMachine.BridgeToVendingMachine(vendingMachine.ListOfProducts);
 
             bool keepLooping = true;
             while (keepLooping)

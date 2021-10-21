@@ -70,7 +70,7 @@ namespace VendingMachine.Test
             string actualValue = null;
 
             //Act
-            vendingMachine.indexPurchase = indexProductList;
+            vendingMachine.MakeAPurchase(indexProductList);   //Set index for the product purchase "Bounty"
             Product bought = vendingMachine.Purchase();
             actualValue = bought.Name;
 

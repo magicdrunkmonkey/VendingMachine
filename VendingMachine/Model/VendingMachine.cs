@@ -13,9 +13,14 @@ namespace VendingMachine.Model
         //Fields, declare, initialize
         private readonly int[] moneyValue = { 1, 5, 10, 20, 50, 100, 500, 1000 };   //Currency values        
         private List<Product> listOfProducts = new List<Product>();
+        private Product[] purchaseList;
+
         public int moneyPool;       //Public for Xunit -> InsertMoney(), EndTransaction()
         public int indexMoney;      //Public for Xunit -> InsertMoney()
-        public int indexPurchase;   //Public for Xunit -> Purchase()
+        public int indexPurchase;   //Public for Xunit -> Purchase()        
+        private string bought;
+        
+
 
         //Getters & Setters
         public int endTransaction { get; set; }     //Assignment requirement
@@ -34,17 +39,21 @@ namespace VendingMachine.Model
             ListOfProducts.Add(productEncapsuled);            
         }
 
-        public void AddMoney(int i)         //Do not understand why it have to be this way to work?
+        public void AddMoney(int iM)         //Do not understand why it have to be this way to work?
         {                                   //How to test this? --> External affecting fields changed to public, manipulate fields in Xunit.
-            indexMoney = i;
+            indexMoney = iM;
             moneyPool=InsertMoney();
+        }
+        
+        public void BridgeToVendingMachine(List<Product> listOfProducts)
+        {
+            purchaseList = listOfProducts.ToArray();   //Turn collection into one array.
+            
         }
 
         public void MakeAPurchase(int iP)
         {
-            indexPurchase = iP;
-            Product[] puchaseList = listOfProducts.ToArray();   //Turn collection into one array.
-            moneyPool = -puchaseList[indexPurchase].Price;      //Deduct price from moneyPool.
+            indexPurchase = iP;            
         }
 
         //Constructor
@@ -70,8 +79,8 @@ namespace VendingMachine.Model
 
         public Product Purchase()                    //Assignment requirement
         {
-            Product[] puchaseList = listOfProducts.ToArray();   //Turn collection into one array.
-            Product bought = puchaseList[indexPurchase];        //Pick out the product to buy.
+            purchaseList = ListOfProducts.ToArray();
+            Product bought = purchaseList[indexPurchase];        //Pick out the product to buy.
             return bought; 
             //throw new NotImplementedException();
         }

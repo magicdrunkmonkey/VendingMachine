@@ -13,8 +13,8 @@ namespace VendingMachine.Model
         //Fields, declare, initialize
         private readonly int[] moneyValue = { 1, 5, 10, 20, 50, 100, 500, 1000 };   //Currency values        
         private List<Product> listOfProducts = new List<Product>();
-        public int moneyPool;
-        public int index;
+        public int moneyPool;       //Public for Xunit -> InsertMoney(), EndTransaction()
+        public int index;           //Public for Xunit -> InsertMoney()
 
         //Getters & Setters
         public int endTransaction { get; set; }     //Assignment requirement

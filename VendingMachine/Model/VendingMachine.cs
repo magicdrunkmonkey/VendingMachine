@@ -34,7 +34,7 @@ namespace VendingMachine.Model
         }
 
         public void addMoney(int i)         //Do not understand why it have to be this way to work?
-        {                                   //How to test this?
+        {                                   //How to test this? --> External affecting fields changed to public, manipulate fields in Xunit.
             index = i;
             moneyPool=InsertMoney();
         }
@@ -70,7 +70,7 @@ namespace VendingMachine.Model
             throw new NotImplementedException();
         }            
 
-        public int MoneyPool()                      //Added for later
+        /*public int MoneyPool()                      //Added for later
         {
             //return base.MoneyPool() ;
             throw new NotImplementedException();

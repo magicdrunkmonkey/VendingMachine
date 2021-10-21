@@ -8,11 +8,11 @@ namespace VendingMachine.Test
     public class VendingMachineTest
     {
         [Fact]
-        public void InsertMoney_ToMoneyPool()
+        public void InsertMoney_ToMoneypool()
         {
             //Arrange
             VendingMachine.Model.VendingMachine vendingMachine = new Model.VendingMachine();
-            //private readonly int[] moneyValue = { 1, 5, 10, 20, 50, 100, 500, 1000 };   //Currency values              
+            //private readonly int[] moneyValue = { 1, 5, 10, 20, 50, 100, 500, 1000 };   //Currency values
             int index20 = 3;                //Point to value 20
             int expectedValue20 = 20;       //Add value 20 to moneyPool=0;
             int index50 = 5;                //Point to value 100 
@@ -36,6 +36,27 @@ namespace VendingMachine.Test
             actualValue120 = vendingMachine.moneyPool;
             //Assert 2
             Assert.Equal(expectedValue120, actualValue120);  //Verify moneyPool=120
+
+            //Cleanup
+            vendingMachine.moneyPool = 0;       //Reset moneyPool
+        }
+        [Fact]
+        public void EndTransaction_ReturnRemainingMoneyFromMoneypool()
+        {
+            //Arrange
+            VendingMachine.Model.VendingMachine vendingMachine = new Model.VendingMachine();
+            int expectedValue = 132;
+            int actualValue = 0;
+            vendingMachine.moneyPool = expectedValue;
+
+            //Act
+            actualValue = vendingMachine.EndTransaction();
+
+            //Assert
+            Assert.Equal(expectedValue, actualValue);
+
+            //Cleanup
+            vendingMachine.moneyPool = 0;       //Reset moneyPool
         }
     }
 }

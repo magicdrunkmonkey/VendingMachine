@@ -57,7 +57,7 @@ namespace VendingMachine
                     switch (choice)
                     {
                         case 1:
-                            Console.WriteLine("1");
+                            vendingMachine.ShowAll();
                             break;
                         case 2:
 

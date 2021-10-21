@@ -24,15 +24,15 @@ namespace VendingMachine.Test
             Assert.Equal(0, actualValue120);
 
             //Act 1
-            vendingMachine.index = index20;     //Index moneyValue to 20
-            vendingMachine.addMoney(index20);   //Add moneyvalue to moneyPool
+            vendingMachine.indexMoney = index20;     //Index moneyValue to 20
+            vendingMachine.AddMoney(index20);   //Add moneyvalue to moneyPool
             actualValue20 = vendingMachine.moneyPool;
             //Assert 1
             Assert.Equal(expectedValue20, actualValue20); //Verify moneyPool=20
 
             //Act 2
-            vendingMachine.index = index50;     //Index moneyValue to 50
-            vendingMachine.addMoney(index50);   //Add moneyvalue to moneyPool
+            vendingMachine.indexMoney = index50;     //Index moneyValue to 50
+            vendingMachine.AddMoney(index50);   //Add moneyvalue to moneyPool
             actualValue120 = vendingMachine.moneyPool;
             //Assert 2
             Assert.Equal(expectedValue120, actualValue120);  //Verify moneyPool=120
@@ -57,6 +57,25 @@ namespace VendingMachine.Test
 
             //Cleanup
             vendingMachine.moneyPool = 0;       //Reset moneyPool
+        }
+
+        [Fact]
+        public void Purchase_BuyAProduct()
+        {
+            //Arrange
+            VendingMachine.Model.VendingMachine vendingMachine = new Model.VendingMachine();
+            vendingMachine.moneyPool = 100;
+            int indexProductList = 3;               
+            string expectedValue = "Bounty";
+            string actualValue = null;
+
+            //Act
+            vendingMachine.indexPurchase = indexProductList;
+            Product bought = vendingMachine.Purchase();
+            actualValue = bought.Name;
+
+            //Assert
+            Assert.Equal(expectedValue, actualValue);
         }
     }
 }

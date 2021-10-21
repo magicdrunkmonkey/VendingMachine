@@ -14,7 +14,8 @@ namespace VendingMachine.Model
         private readonly int[] moneyValue = { 1, 5, 10, 20, 50, 100, 500, 1000 };   //Currency values        
         private List<Product> listOfProducts = new List<Product>();
         public int moneyPool;       //Public for Xunit -> InsertMoney(), EndTransaction()
-        public int index;           //Public for Xunit -> InsertMoney()
+        public int indexMoney;      //Public for Xunit -> InsertMoney()
+        public int indexPurchase;   //Public for Xunit -> Purchase()
 
         //Getters & Setters
         public int endTransaction { get; set; }     //Assignment requirement
@@ -33,10 +34,17 @@ namespace VendingMachine.Model
             ListOfProducts.Add(productEncapsuled);            
         }
 
-        public void addMoney(int i)         //Do not understand why it have to be this way to work?
+        public void AddMoney(int i)         //Do not understand why it have to be this way to work?
         {                                   //How to test this? --> External affecting fields changed to public, manipulate fields in Xunit.
-            index = i;
+            indexMoney = i;
             moneyPool=InsertMoney();
+        }
+
+        public void MakeAPurchase(int iP)
+        {
+            indexPurchase = iP;
+            Product[] puchaseList = listOfProducts.ToArray();   //Turn collection into one array.
+            moneyPool = -puchaseList[indexPurchase].Price;      //Deduct price from moneyPool.
         }
 
         //Constructor
@@ -56,13 +64,16 @@ namespace VendingMachine.Model
 
         public int InsertMoney()                    //Assignment requirement
         {
-            return moneyPool += moneyValue[index];
+            return moneyPool += moneyValue[indexMoney];
             //throw new NotImplementedException();
         }
 
-        public string Purchase()                    //Assignment requirement
+        public Product Purchase()                    //Assignment requirement
         {
-            throw new NotImplementedException();
+            Product[] puchaseList = listOfProducts.ToArray();   //Turn collection into one array.
+            Product bought = puchaseList[indexPurchase];        //Pick out the product to buy.
+            return bought; 
+            //throw new NotImplementedException();
         }
 
         public string ShowAll()                     //Assignment requirement

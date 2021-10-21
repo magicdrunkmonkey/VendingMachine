@@ -7,7 +7,9 @@ namespace VendingMachine.Model
     public abstract class Product
     {
         //Propertys variabler
+        //private readonly int productId;
         private int price;
+        
         public string Name { get; set; }
         public int Price { get { return price; } set { price = value; } }
         public string Info { get; set; }
@@ -15,6 +17,7 @@ namespace VendingMachine.Model
         //Constructor
         public Product(string name, int price)
         {
+            //this.productId = productId;
             Name = name;
             Price = price;            
         }

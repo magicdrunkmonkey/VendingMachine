@@ -13,7 +13,8 @@ namespace VendingMachine.Model
         //Fields, declare, initialize
         private readonly int[] moneyValue = { 1, 5, 10, 20, 50, 100, 500, 1000 };   //Currency values        
         private List<Product> listOfProducts = new List<Product>();
-        private int moneyPool;                                                      //Added
+        private int moneyPool;
+        private int index;
 
         //Getters & Setters
         public int endTransaction { get; set; }     //Assignment requirement
@@ -32,8 +33,9 @@ namespace VendingMachine.Model
             ListOfProducts.Add(productEncapsuled);            
         }
 
-        public void addMoney(int m)
-        {
+        public void addMoney(int i)         //Do not understand why it have to be this way to work?
+        {                                   //How to test this?
+            index = i;
             moneyPool=InsertMoney();
         }
 
@@ -51,7 +53,8 @@ namespace VendingMachine.Model
 
         public int InsertMoney()                    //Assignment requirement
         {
-            throw new NotImplementedException();
+            return moneyPool += moneyValue[index];
+            //throw new NotImplementedException();
         }
 
         public string Purchase()                    //Assignment requirement
@@ -64,7 +67,7 @@ namespace VendingMachine.Model
             throw new NotImplementedException();
         }            
 
-        public int MoneyPool()                      //Assignment requirement
+        public int MoneyPool()                      //Added for later
         {
             //return base.MoneyPool() ;
             throw new NotImplementedException();

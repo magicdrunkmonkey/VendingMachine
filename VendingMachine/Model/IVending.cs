@@ -13,6 +13,6 @@ namespace VendingMachine.Interface
         int EndTransaction();   //returns money left in appropriate amount of change.
 
         //Adding
-        int MoneyPool();
+        //int MoneyPool();
     }
 }

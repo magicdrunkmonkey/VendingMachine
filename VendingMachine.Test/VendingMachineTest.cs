@@ -28,14 +28,14 @@ namespace VendingMachine.Test
             vendingMachine.addMoney(index20);   //Add moneyvalue to moneyPool
             actualValue20 = vendingMachine.moneyPool;
             //Assert 1
-            Assert.Equal(expectedValue20, actualValue20);
+            Assert.Equal(expectedValue20, actualValue20); //Verify moneyPool=20
 
             //Act 2
             vendingMachine.index = index50;     //Index moneyValue to 50
             vendingMachine.addMoney(index50);   //Add moneyvalue to moneyPool
             actualValue120 = vendingMachine.moneyPool;
             //Assert 2
-            Assert.Equal(expectedValue120, actualValue120);
+            Assert.Equal(expectedValue120, actualValue120);  //Verify moneyPool=120
         }
     }
 }

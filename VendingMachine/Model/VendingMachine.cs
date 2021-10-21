@@ -85,19 +85,15 @@ namespace VendingMachine.Model
             //throw new NotImplementedException();
         }
 
-        public string ShowAll()                     //Assignment requirement
+        public void ShowAll()                     //show all products with price. //Assignment requirement
         {
-            throw new NotImplementedException();
-        }            
+            foreach (Product product in listOfProducts)
+            {               
+                Console.WriteLine(product.Examine());
+            }
 
-        /*public int MoneyPool()                      //Added for later
-        {
-            //return base.MoneyPool() ;
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
-
-
-
 
         /* Example help
         Person person0 = new Person("Kalle", "+46123456", "Skövde, bogatan 5");

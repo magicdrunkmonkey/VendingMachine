@@ -33,6 +33,7 @@ namespace VendingMachine.Products
         //Metod (member) (Funktion)
         public new string Examine()
         {
+            //return base.Info() + $"One toy{Name} costs {Price}kr.";
             return base.Examine() + $"One toy{Name} costs {Price}kr.";
         }
 

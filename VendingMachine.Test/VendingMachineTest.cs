@@ -70,22 +70,66 @@ namespace VendingMachine.Test
             string actualValue = null;
 
             //Populate produktlist
-            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy");
-            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy");
-            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy");
-            vendingMachine.addProduct(candy0);
-            vendingMachine.addProduct(candy1);
-            vendingMachine.addProduct(candy2);
+            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy");  
+            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy");   
+            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy");     
+            vendingMachine.addProduct(candy0);          //Index 0
+            vendingMachine.addProduct(candy1);          //Index 1
+            vendingMachine.addProduct(candy2);          //Index 2
 
-            vendingMachine.BridgeToVendingMachine(vendingMachine.ListOfProducts);
+            vendingMachine.BridgeToVendingMachine(vendingMachine.ListOfProducts); //Create a list of 3 products
 
             //Act
-            vendingMachine.MakeAPurchase(indexProductList);   //Set index for the product purchase "Bounty"
-            Product bought = vendingMachine.Purchase();
+            vendingMachine.MakeAPurchase(indexProductList);     //Set index for the product purchase at index=2
+            Product bought = vendingMachine.Purchase();         //Buy from indexProductList at index=2
             actualValue = bought.Name;
 
             //Assert
             Assert.Equal(expectedValue, actualValue);
+
+            //Cleanup
+            vendingMachine.moneyPool = 0;       //Reset moneyPool
+        }
+
+        [Fact]
+        public void ShowAll_DisplayAllListedProductsWithNameAndPrice()
+        {
+            //Arrange
+            VendingMachine.Model.VendingMachine vendingMachine = new Model.VendingMachine();            
+
+            //List of candy name, price, type
+            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy");
+            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy");
+            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy");
+
+            //List of softdrinks name, price, type
+            SoftDrinkProducts softdrink0 = new SoftDrinkProducts("Pepsi", 8, "Softdrink");
+            SoftDrinkProducts softdrink1 = new SoftDrinkProducts("Fanta", 11, "Softdrink");
+            SoftDrinkProducts softdrink2 = new SoftDrinkProducts("7up", 13, "Softdrink");
+
+            //List of toys name, price, type
+            ToyProducts toy0 = new ToyProducts("plane", 8, "Toy");
+            ToyProducts toy1 = new ToyProducts("car", 11, "Toy");
+            ToyProducts toy2 = new ToyProducts("boat", 13, "Toy");
+
+            //Listed products
+            vendingMachine.addProduct(candy0);
+            vendingMachine.addProduct(candy1);
+            vendingMachine.addProduct(candy2);
+            vendingMachine.addProduct(softdrink0);
+            vendingMachine.addProduct(softdrink1);
+            vendingMachine.addProduct(softdrink2);
+            vendingMachine.addProduct(toy0);
+            vendingMachine.addProduct(toy1);
+            vendingMachine.addProduct(toy2);
+
+            //Act
+
+            //Create a list of 9 products
+            Product[] allListed = vendingMachine.BridgeToVendingMachine(vendingMachine.ListOfProducts);
+
+            //Assert            
+            Assert.Equal(9, allListed.Length);
         }
     }
 }

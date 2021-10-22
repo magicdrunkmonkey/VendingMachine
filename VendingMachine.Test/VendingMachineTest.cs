@@ -195,10 +195,10 @@ namespace VendingMachine.Test
             string expecteResult_C2 = "Eating the Bounty.";
 
             string actualResult_SD1 = softdrink1.Use();
-            string expecteResult_SD1 = "Drinking the Fanta.";
+            string expecteResult_SD1 = "Drinking the Fanta it tastes like Sour.";
 
             string actualResult_T0 = toy0.Use();
-            string expecteResult_T0 = "Playing with the plane.";
+            string expecteResult_T0 = "Playing with the White toyplane.";
 
             //Assert 
             Assert.Equal(expecteResult_C2, actualResult_C2);

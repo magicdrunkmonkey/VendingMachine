@@ -66,31 +66,32 @@ namespace VendingMachine.Model
         public Dictionary<int,int> EndTransaction()                  //Assignment requirement //Dictionary <int,int> 
         {
             IDictionary<int, int> mValues = new Dictionary<int, int>();                    // moneyValue = { 1, 5, 10, 20, 50, 100, 500, 1000 };
-                        
-            mValues.Add(1000, 0);
-            mValues.Add(500, 0);
-            mValues.Add(100, 0);
-            mValues.Add(50, 0);
-            mValues.Add(20, 0);
-            mValues.Add(10, 0);
-            mValues.Add(5, 0);
+
             mValues.Add(1, 0);
-
+            mValues.Add(5, 0);
+            mValues.Add(10, 0);
+            mValues.Add(20, 0);
+            mValues.Add(50, 0);
+            mValues.Add(100, 0);
+            mValues.Add(500, 0);
+            mValues.Add(1000, 0);
+            
             Console.WriteLine($"Returning {moneyPool}kr\n");
-
-            foreach(KeyValuePair<int,int> kvp in mValues)
+            int indexChangeReturn = moneyValue.Length-1;
+            foreach(int kvp in moneyValue)
             {
                 //Console.WriteLine($"Returning {1} amount of {0}");
                 //Console.WriteLine($"{kvp.Key} kr: " + (moneyPool - moneyPool % kvp.Key) / kvp.Key);
 
-                //Example
+                //Example demo
                 //(moneyPool - moneyPool % 1000) / 1000);   Counting amounts of 1000kr 
-                //moneyPool = moneyPool % 1000;
-                //(moneyPool - moneyPool % 500) / 500);
-                //moneyPool = moneyPool % 500;
+                //moneyPool = moneyPool % 1000;             Calculating remainder without multiple 1000kr
+                //(moneyPool - moneyPool % 500) / 500);     Counting amounts of 500kr
+                //moneyPool = moneyPool % 500;              Calculating remainder without multiple 1000kr
 
-                mValues[kvp.Key]= (moneyPool - moneyPool % kvp.Key) / kvp.Key;
-                moneyPool = moneyPool % kvp.Key;
+                mValues[moneyValue[indexChangeReturn]]= (moneyPool - moneyPool % moneyValue[indexChangeReturn]) / moneyValue[indexChangeReturn];
+                moneyPool = moneyPool % moneyValue[indexChangeReturn];
+                indexChangeReturn--;
             }
 
             //int returningMoney = moneyPool;             //Dictionary <1, "hur många?">

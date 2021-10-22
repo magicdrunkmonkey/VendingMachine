@@ -133,7 +133,7 @@ namespace VendingMachine
                             Console.WriteLine("Not valid number");
                         }
 
-                        if (productChoice <= 8 && productChoice != 0)
+                        if (productChoice <= 9 && productChoice != 0)
                         {
                             Console.Clear();
                             productDecision = --productChoice;
@@ -152,14 +152,17 @@ namespace VendingMachine
                         if (bought is ToyProducts)
                         {
                             Console.WriteLine((bought as ToyProducts).Use());
+                            vendingMachine.moneyPool -= bought.Price;
                         }
                         else if (bought is CandyProducts)
                         {
                             Console.WriteLine((bought as CandyProducts).Use());
+                            vendingMachine.moneyPool -= bought.Price;
                         }
                         else if (bought is SoftDrinkProducts)
                         {
                             Console.WriteLine((bought as SoftDrinkProducts).Use());
+                            vendingMachine.moneyPool -= bought.Price;
                         }
                         else
                         {

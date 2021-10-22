@@ -92,7 +92,7 @@ namespace VendingMachine.Test
         }
 
         [Fact]
-        public void ShowAll_DisplayAllListedProductsWithNameAndPrice()
+        public void ExamineTest()
         {
             //Arrange
             VendingMachine.Model.VendingMachine vendingMachine = new Model.VendingMachine();            
@@ -121,15 +121,77 @@ namespace VendingMachine.Test
             vendingMachine.addProduct(softdrink2);
             vendingMachine.addProduct(toy0);
             vendingMachine.addProduct(toy1);
-            vendingMachine.addProduct(toy2);
-
-            //Act
+            vendingMachine.addProduct(toy2);            
 
             //Create a list of 9 products
             Product[] allListed = vendingMachine.BridgeToVendingMachine(vendingMachine.ListOfProducts);
 
-            //Assert            
-            Assert.Equal(9, allListed.Length);
+            //Act
+            string actualResult_C0 = candy0.Examine();
+            string expecteResult_C0 = "One Snickers candy costs 10kr.";
+
+            string actualResult_SD2 = softdrink2.Examine();
+            string expecteResult_SD2 = "One 7up softdrink costs 13kr.";
+
+            string actualResult_T1 = toy1.Examine();
+            string expecteResult_T1 = "One toycar costs 11kr.";
+
+            //Assert 
+            Assert.Equal(expecteResult_C0, actualResult_C0);
+            Assert.Equal(expecteResult_SD2, actualResult_SD2);
+            Assert.Equal(expecteResult_T1, actualResult_T1);
+        }
+
+        [Fact]
+        public void UseTest()
+        {
+            //Arrange
+            VendingMachine.Model.VendingMachine vendingMachine = new Model.VendingMachine();
+
+            //List of candy name, price, type
+            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy");
+            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy");
+            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy");
+
+            //List of softdrinks name, price, type
+            SoftDrinkProducts softdrink0 = new SoftDrinkProducts("Pepsi", 8, "Softdrink");
+            SoftDrinkProducts softdrink1 = new SoftDrinkProducts("Fanta", 11, "Softdrink");
+            SoftDrinkProducts softdrink2 = new SoftDrinkProducts("7up", 13, "Softdrink");
+
+            //List of toys name, price, type
+            ToyProducts toy0 = new ToyProducts("plane", 8, "Toy");
+            ToyProducts toy1 = new ToyProducts("car", 11, "Toy");
+            ToyProducts toy2 = new ToyProducts("boat", 13, "Toy");
+
+            //Listed products
+            vendingMachine.addProduct(candy0);
+            vendingMachine.addProduct(candy1);
+            vendingMachine.addProduct(candy2);
+            vendingMachine.addProduct(softdrink0);
+            vendingMachine.addProduct(softdrink1);
+            vendingMachine.addProduct(softdrink2);
+            vendingMachine.addProduct(toy0);
+            vendingMachine.addProduct(toy1);
+            vendingMachine.addProduct(toy2);
+
+            //Create a list of 9 products
+            Product[] allListed = vendingMachine.BridgeToVendingMachine(vendingMachine.ListOfProducts);
+
+            //Act
+            string actualResult_C2 = candy2.Use();
+            string expecteResult_C2 = "Eating the Bounty.";
+
+            string actualResult_SD1 = softdrink1.Use();
+            string expecteResult_SD1 = "Drinking the Fanta.";
+
+            string actualResult_T0 = toy0.Use();
+            string expecteResult_T0 = "Playing with the plane.";
+
+            //Assert 
+            Assert.Equal(expecteResult_C2, actualResult_C2);
+            Assert.Equal(expecteResult_SD1, actualResult_SD1);
+            Assert.Equal(expecteResult_T0, actualResult_T0);
+
         }
     }
 }

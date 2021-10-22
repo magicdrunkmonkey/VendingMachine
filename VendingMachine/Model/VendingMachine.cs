@@ -89,7 +89,7 @@ namespace VendingMachine.Model
                 //(moneyPool - moneyPool % 500) / 500);
                 //moneyPool = moneyPool % 500;
 
-                mValues[kvp.Value]= (moneyPool - moneyPool % kvp.Key) / kvp.Key;
+                mValues[kvp.Key]= (moneyPool - moneyPool % kvp.Key) / kvp.Key;
                 moneyPool = moneyPool % kvp.Key;
             }
 

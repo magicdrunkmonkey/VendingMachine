@@ -2,6 +2,7 @@ using System;
 using Xunit;
 using VendingMachine.Model;
 using VendingMachine.Products;
+using System.Collections.Generic;
 
 namespace VendingMachine.Test
 {
@@ -45,26 +46,27 @@ namespace VendingMachine.Test
         {
             //Arrange
             VendingMachine.Model.VendingMachine vendingMachine = new Model.VendingMachine();
-            
-            IDicionary expectedValues
-             * mValues.Add(1000, 1);
-             * mValues.Add(500, 1);
-             * mValues.Add(100, 1);
-             * mValues.Add(50, 1);
-             * mValues.Add(20, 1);
-             * mValues.Add(10, 1);
-             * mValues.Add(5, 1);
-             * mValues.Add(1, 1);             * 
-             */
-            int expectedValue = 132;
-            int actualValue = 0;
-            vendingMachine.moneyPool = expectedValue;
+
+            //IDictionary<int, int> mValues = new Dictionary<int, int>();
+            IDictionary<int, int> expectedValues = new Dictionary<int, int>();
+            expectedValues.Add(1000, 1);
+            expectedValues.Add(500, 0);
+            expectedValues.Add(100, 1);
+            expectedValues.Add(50, 0);
+            expectedValues.Add(20, 1);
+            expectedValues.Add(10, 0);
+            expectedValues.Add(5, 1);
+            expectedValues.Add(1, 0);
+
+            IDictionary<int, int> actualValues = new Dictionary<int, int>();
+
+            vendingMachine.moneyPool = 1125;
 
             //Act
-            actualValue = vendingMachine.EndTransaction();
+            actualValues = vendingMachine.EndTransaction();
 
             //Assert
-            Assert.Equal(expectedValue, actualValue);
+            Assert.Equal(expectedValues, actualValues);
 
             //Cleanup
             vendingMachine.moneyPool = 0;       //Reset moneyPool
@@ -139,13 +141,13 @@ namespace VendingMachine.Test
 
             //Act
             string actualResult_C0 = candy0.Examine();
-            string expecteResult_C0 = "One Snickers candy costs 10kr.";
+            string expecteResult_C0 = "One Snickers candy costs 10kr.Sugar content: 3g";
 
             string actualResult_SD2 = softdrink2.Examine();
-            string expecteResult_SD2 = "One 7up softdrink costs 13kr.";
+            string expecteResult_SD2 = "One 7up softdrink costs 13kr.Tastes like Fresh";
 
             string actualResult_T1 = toy1.Examine();
-            string expecteResult_T1 = "One toycar costs 11kr.";
+            string expecteResult_T1 = "One Red toycar costs 11kr.";
 
             //Assert 
             Assert.Equal(expecteResult_C0, actualResult_C0);

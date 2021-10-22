@@ -11,7 +11,7 @@ namespace VendingMachine.Interface
         Product Purchase(int i);      //to buy a product.
         void ShowAll();       //show all products with price.        
         int InsertMoney(int i);      //add money to the pool.        
-        int EndTransaction();   //returns money left in appropriate amount of change.
+        Dictionary<int, int> EndTransaction();   //returns money left in appropriate amount of change.
 
        
     }

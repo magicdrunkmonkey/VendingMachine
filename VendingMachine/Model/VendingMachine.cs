@@ -63,11 +63,39 @@ namespace VendingMachine.Model
         }
 
         //Metod (member) (Funktion)
-        public int EndTransaction()                  //Assignment requirement
+        public Dictionary<int,int> EndTransaction()                  //Assignment requirement //Dictionary <int,int> 
         {
-            int returningMoney = moneyPool;
-            moneyPool = 0;
-            return returningMoney;
+            IDictionary<int, int> mValues = new Dictionary<int, int>();                    // moneyValue = { 1, 5, 10, 20, 50, 100, 500, 1000 };
+                        
+            mValues.Add(1000, 0);
+            mValues.Add(500, 0);
+            mValues.Add(100, 0);
+            mValues.Add(50, 0);
+            mValues.Add(20, 0);
+            mValues.Add(10, 0);
+            mValues.Add(5, 0);
+            mValues.Add(1, 0);
+
+            Console.WriteLine($"Returning {moneyPool}kr\n");
+
+            foreach(KeyValuePair<int,int> kvp in mValues)
+            {
+                //Console.WriteLine($"Returning {1} amount of {0}");
+                //Console.WriteLine($"{kvp.Key} kr: " + (moneyPool - moneyPool % kvp.Key) / kvp.Key);
+
+                //Example
+                //(moneyPool - moneyPool % 1000) / 1000);   Counting amounts of 1000kr 
+                //moneyPool = moneyPool % 1000;
+                //(moneyPool - moneyPool % 500) / 500);
+                //moneyPool = moneyPool % 500;
+
+                mValues[kvp.Value]= (moneyPool - moneyPool % kvp.Key) / kvp.Key;
+                moneyPool = moneyPool % kvp.Key;
+            }
+
+            //int returningMoney = moneyPool;             //Dictionary <1, "hur många?">
+            //moneyPool = 0;
+            return (Dictionary<int, int>)mValues;
             //throw new NotImplementedException();
         }
 

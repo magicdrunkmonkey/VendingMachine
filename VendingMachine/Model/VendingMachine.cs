@@ -12,7 +12,7 @@ namespace VendingMachine.Model
     {
         //Fields, declare, initialize
         private readonly int[] moneyValue = { 1, 5, 10, 20, 50, 100, 500, 1000 };   //Currency values        
-        private List<Product> listOfProducts = new List<Product>();
+        public List<Product> listOfProducts = new List<Product>(); //Need access for purchase in program.cs
         private Product[] purchaseList;
 
         public int moneyPool;       //Public for Xunit -> InsertMoney(), EndTransaction()
@@ -87,8 +87,11 @@ namespace VendingMachine.Model
 
         public void ShowAll()                     //show all products with price. //Assignment requirement
         {
+            int countProducts = 0;
             foreach (Product product in listOfProducts)
             {
+                countProducts++;
+                Console.Write(countProducts + ") ");
                 if(product is ToyProducts)
                 {
                     Console.WriteLine((product as ToyProducts).Examine());

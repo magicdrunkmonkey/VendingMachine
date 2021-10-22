@@ -115,6 +115,98 @@ namespace VendingMachine
                         //Console.Clear();
                         break;
                     case 3:
+                        Console.Clear();
+                        Console.WriteLine("Products & Price\n" +
+                                          "-------------------------------");
+                        vendingMachine.ShowAll();
+                        Console.WriteLine();
+                        Console.WriteLine("Moneypool: " + vendingMachine.moneyPool);
+                        Console.Write("Choce your option: ");
+                        int productChoice=0;
+                        int productDecision;
+                        try
+                        {
+                            productChoice = int.Parse(Console.ReadLine() ?? "");
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Not valid number");
+                        }
+
+                        if (productChoice <= 8 && productChoice != 0)
+                        {
+                            Console.Clear();
+                            productDecision = --productChoice;
+                            vendingMachine.MakeAPurchase(productDecision);      //Set index for the product purchase
+                            //Console.WriteLine("Hit any key to continue!");
+                            //Console.ReadKey();
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Not a valit option!");
+                        }
+
+                        //Attempt 3                        
+                        Product bought = vendingMachine.Purchase();         //Buy from the List at index
+                        if (bought is ToyProducts)
+                        {
+                            Console.WriteLine((bought as ToyProducts).Use());
+                        }
+                        else if (bought is CandyProducts)
+                        {
+                            Console.WriteLine((bought as CandyProducts).Use());
+                        }
+                        else if (bought is SoftDrinkProducts)
+                        {
+                            Console.WriteLine((bought as SoftDrinkProducts).Use());
+                        }
+                        else
+                        {
+                            Console.WriteLine("There is no more products");
+                        }                    //Use bought product                       
+
+
+                        /*//Attempt 2
+                        foreach (Product product in listOfProducts)
+                        {                            
+                            if ((vendingMachine.ListOfProducts.)
+                            {
+                                Console.WriteLine((product as ToyProducts).Examine());
+                            }
+                            else if (product is CandyProducts)
+                            {
+                                Console.WriteLine((product as CandyProducts).Examine());
+                            }
+                            else if (product is SoftDrinkProducts)
+                            {
+                                Console.WriteLine((product as SoftDrinkProducts).Examine());
+                            }
+                            else
+                            {
+                                Console.WriteLine("There is no more products");
+                            }
+                        }*/
+
+                        /*//Attempt 1
+                        if (vendingMachine. )
+                        {
+                            Console.WriteLine((product as ToyProducts).Examine());
+                        }
+                        else if (product is CandyProducts)
+                        {
+                            Console.WriteLine((product as CandyProducts).Examine());
+                        }
+                        else if (product is SoftDrinkProducts)
+                        {
+                            Console.WriteLine((product as SoftDrinkProducts).Examine());
+                        }
+                        else
+                        {
+                            Console.WriteLine("There is no more products");
+                        }*/
+
+
                         break;
                     case 4:
                         Console.Clear();

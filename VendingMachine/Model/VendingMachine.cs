@@ -13,7 +13,7 @@ namespace VendingMachine.Model
         //Fields, declare, initialize
         private readonly int[] moneyValue = { 1, 5, 10, 20, 50, 100, 500, 1000 };   //Currency values        
         public List<Product> listOfProducts = new List<Product>(); //Need access for purchase in program.cs
-        private Product[] purchaseList;
+        //private Product[] purchaseList;
 
         public int moneyPool;       //Public for Xunit -> InsertMoney(), EndTransaction()
         public int indexMoney;      //Public for Xunit -> InsertMoney()
@@ -80,10 +80,10 @@ namespace VendingMachine.Model
 
         public Product Purchase(int iP)                    //Assignment requirement
         {
-            purchaseList = listOfProducts.ToArray();   //Turn collection into one array.
-            indexPurchase = iP;
+            Product[] purchaseList = listOfProducts.ToArray();   //Turn collection into one array.
+            //indexPurchase = iP;
             //purchaseList = ListOfProducts.ToArray();
-            Product bought = purchaseList[indexPurchase];        //Pick out the product to buy.
+            Product bought = purchaseList[iP];                  //Pick out the product to buy.
             return bought; 
             //throw new NotImplementedException();
         }

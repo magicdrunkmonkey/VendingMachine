@@ -37,7 +37,7 @@ namespace VendingMachine
             vendingMachine.addProduct(toy1);
             vendingMachine.addProduct(toy2);
 
-            vendingMachine.BridgeToVendingMachine(vendingMachine.ListOfProducts);
+            //vendingMachine.BridgeToVendingMachine(vendingMachine.ListOfProducts);
 
             bool keepLooping = true;
             while (keepLooping)
@@ -102,7 +102,7 @@ namespace VendingMachine
                         {
                             Console.Clear();
                             decision = --moneyChoice;
-                            vendingMachine.AddMoney(decision);
+                            vendingMachine.InsertMoney(decision);
                         }
                         else
                         {
@@ -123,7 +123,7 @@ namespace VendingMachine
                         Console.WriteLine("Moneypool: " + vendingMachine.moneyPool);
                         Console.Write("Choce your option: ");
                         int productChoice=0;
-                        int productDecision;
+                        int productDecision=0;
                         try
                         {
                             productChoice = int.Parse(Console.ReadLine() ?? "");
@@ -137,7 +137,7 @@ namespace VendingMachine
                         {
                             Console.Clear();
                             productDecision = --productChoice;
-                            vendingMachine.MakeAPurchase(productDecision);      //Set index for the product purchase
+                            vendingMachine.Purchase(productDecision);      //Set index for the product purchase
                             //Console.WriteLine("Hit any key to continue!");
                             //Console.ReadKey();
                         }
@@ -148,7 +148,7 @@ namespace VendingMachine
                         }
 
                         //Attempt 3                        
-                        Product bought = vendingMachine.Purchase();         //Buy from the List at index
+                        Product bought = vendingMachine.Purchase(productDecision);         //Buy from the List at index
                         if (bought is ToyProducts)
                         {
                             Console.WriteLine((bought as ToyProducts).Use());   //Use bought product

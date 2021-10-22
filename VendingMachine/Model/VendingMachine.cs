@@ -38,23 +38,23 @@ namespace VendingMachine.Model
             }            
             ListOfProducts.Add(productEncapsuled);            
         }
-
+        /*
         public void AddMoney(int iM)         //Do not understand why it have to be this way to work?
         {                                   //How to test this? --> External affecting fields changed to public, manipulate fields in Xunit.
             indexMoney = iM;
             moneyPool=InsertMoney();
-        }
-        
+        }*/
+        /*
         public Product[] BridgeToVendingMachine(List<Product> listOfProducts)
         {
             purchaseList = listOfProducts.ToArray();   //Turn collection into one array.
             return purchaseList;
-        }
-
+        }*/
+        /*
         public void MakeAPurchase(int iP)
         {
             indexPurchase = iP;            
-        }
+        }*/
 
         //Constructor
         public VendingMachine()             //Does not seem to be needed?
@@ -71,14 +71,17 @@ namespace VendingMachine.Model
             //throw new NotImplementedException();
         }
 
-        public int InsertMoney()                    //Assignment requirement
+        public int InsertMoney(int iM)                    //Assignment requirement
         {
+            indexMoney = iM;            
             return moneyPool += moneyValue[indexMoney];
             //throw new NotImplementedException();
         }
 
-        public Product Purchase()                    //Assignment requirement
+        public Product Purchase(int iP)                    //Assignment requirement
         {
+            purchaseList = listOfProducts.ToArray();   //Turn collection into one array.
+            indexPurchase = iP;
             //purchaseList = ListOfProducts.ToArray();
             Product bought = purchaseList[indexPurchase];        //Pick out the product to buy.
             return bought; 

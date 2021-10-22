@@ -8,9 +8,9 @@ namespace VendingMachine.Interface
     public interface IVending    
     {
         //Must have for assignment
-        Product Purchase();      //to buy a product.
+        Product Purchase(int i);      //to buy a product.
         void ShowAll();       //show all products with price.        
-        int InsertMoney();      //add money to the pool.        
+        int InsertMoney(int i);      //add money to the pool.        
         int EndTransaction();   //returns money left in appropriate amount of change.
 
        

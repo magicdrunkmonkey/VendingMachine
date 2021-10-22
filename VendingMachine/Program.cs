@@ -11,20 +11,20 @@ namespace VendingMachine
 
             VendingMachine.Model.VendingMachine vendingMachine = new VendingMachine.Model.VendingMachine();
 
-            //List of candy name, price, type
-            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy");
-            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy");
-            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy");
+            //List of candy name, price, type, sugar
+            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy", "3g");
+            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy", "4g");
+            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy", "7g");
 
             //List of softdrinks name, price, type
-            SoftDrinkProducts softdrink0 = new SoftDrinkProducts("Pepsi", 8, "Softdrink");
-            SoftDrinkProducts softdrink1 = new SoftDrinkProducts("Fanta", 11,"Softdrink");
-            SoftDrinkProducts softdrink2 = new SoftDrinkProducts("7up", 13, "Softdrink");
+            SoftDrinkProducts softdrink0 = new SoftDrinkProducts("Pepsi", 8, "Softdrink", "syrup");
+            SoftDrinkProducts softdrink1 = new SoftDrinkProducts("Fanta", 11,"Softdrink", "fruity");
+            SoftDrinkProducts softdrink2 = new SoftDrinkProducts("7up", 13, "Softdrink", "fresh");
 
             //List of toys name, price, type
-            ToyProducts toy0 = new ToyProducts("plane", 8, "Toy");
-            ToyProducts toy1 = new ToyProducts("car", 11, "Toy");
-            ToyProducts toy2 = new ToyProducts("boat", 13, "Toy");
+            ToyProducts toy0 = new ToyProducts("plane", 8, "Toy", "blue");
+            ToyProducts toy1 = new ToyProducts("car", 11, "Toy", "red");
+            ToyProducts toy2 = new ToyProducts("boat", 13, "Toy", "green");
 
             //Listed products
             vendingMachine.addProduct(candy0);

@@ -22,24 +22,27 @@ namespace VendingMachine.Products
 
         //Propertys variabler
         string type;
+        string color;
         public string Type { get { return type; } set{ type = value; } }
+        public string Color { get { return color; } set { color = value; } }
 
         //Constructor
-        public ToyProducts(string name, int price, string type) : base(name, price)
+        public ToyProducts(string name, int price, string type, string color) : base(name, price)
         {            
             Type = type;
+            Color = color;
         }
 
         //Metod (member) (Funktion)
         public new string Examine()
         {
             //return base.Info() + $"One toy{Name} costs {Price}kr.";
-            return base.Examine() + $"One toy{Name} costs {Price}kr.";
+            return base.Examine() + $"One {Color} toy{Name} costs {Price}kr.";
         }
 
         public new string Use()
         {
-            return base.Use() + $"Playing with the {Name}.";
+            return base.Use() + $"Playing with the {Color} toy{Name}.";
         }
 
         /* Attempt1 wrong solution

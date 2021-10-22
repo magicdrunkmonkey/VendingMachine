@@ -151,7 +151,7 @@ namespace VendingMachine
                         Product bought = vendingMachine.Purchase();         //Buy from the List at index
                         if (bought is ToyProducts)
                         {
-                            Console.WriteLine((bought as ToyProducts).Use());
+                            Console.WriteLine((bought as ToyProducts).Use());   //Use bought product
                             vendingMachine.moneyPool -= bought.Price;
                         }
                         else if (bought is CandyProducts)
@@ -167,7 +167,7 @@ namespace VendingMachine
                         else
                         {
                             Console.WriteLine("There is no more products");
-                        }                    //Use bought product                       
+                        }                                           
 
 
                         /*//Attempt 2

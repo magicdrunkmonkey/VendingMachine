@@ -116,7 +116,16 @@ namespace VendingMachine.Model
             //indexPurchase = iP;
             //purchaseList = ListOfProducts.ToArray();
             Product bought = purchaseList[iP];                  //Pick out the product to buy.
-            return bought; 
+            if(bought.Price < moneyPool)
+            {
+                return bought;
+            }
+            else
+            {
+                throw new ArgumentException("Not enough money. Please insert.");
+            }
+
+             
             //throw new NotImplementedException();
         }
 

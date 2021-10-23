@@ -105,6 +105,36 @@ namespace VendingMachine.Test
         }
 
         [Fact]
+        public void Purchase_NotEnoughMoney()
+        {
+            //Arrange
+            VendingMachine.Model.VendingMachine vendingMachine = new Model.VendingMachine();
+            vendingMachine.moneyPool = 0;
+            int indexProductList = 2;
+            string expectedValue = "Not enough money. Please insert.";
+            string actualValue = null;
+
+            //Populate produktlist
+            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy", "Small", 3);
+            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy", "Medium", 4);
+            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy", "Big", 8);
+            vendingMachine.addProduct(candy0);          //Index 0
+            vendingMachine.addProduct(candy1);          //Index 1
+            vendingMachine.addProduct(candy2);          //Index 2
+
+            //Act            
+            //Product bought = vendingMachine.Purchase(indexProductList);         //Buy from indexProductList at index=2
+            //actualValue = bought.Name;
+            ArgumentException result = Assert.Throws<ArgumentException>(
+                () => vendingMachine.Purchase(indexProductList));
+            //Assert
+            Assert.Equal(expectedValue, result.Message);
+
+            //Cleanup
+            vendingMachine.moneyPool = 0;       //Reset moneyPool
+        }
+
+        [Fact]
         public void ExamineTest()
         {
             //Arrange

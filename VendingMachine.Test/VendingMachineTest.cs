@@ -83,9 +83,9 @@ namespace VendingMachine.Test
             string actualValue = null;
 
             //Populate produktlist
-            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy", "3g");
-            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy", "4g");
-            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy", "8g");     
+            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy", "Small", 3);
+            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy", "Medium", 4);
+            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy", "Big", 8);     
             vendingMachine.addProduct(candy0);          //Index 0
             vendingMachine.addProduct(candy1);          //Index 1
             vendingMachine.addProduct(candy2);          //Index 2
@@ -111,19 +111,19 @@ namespace VendingMachine.Test
             VendingMachine.Model.VendingMachine vendingMachine = new Model.VendingMachine();
 
             //List of candy name, price, type
-            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy", "3g");
-            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy", "4g");
-            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy", "8g");
+            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy",  "Small", 12);
+            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy", "Medium", 6);
+            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy", "Big", 8);
 
             //List of softdrinks name, price, type
-            SoftDrinkProducts softdrink0 = new SoftDrinkProducts("Pepsi", 8, "Softdrink", "Sweet");
-            SoftDrinkProducts softdrink1 = new SoftDrinkProducts("Fanta", 11, "Softdrink", "Sour");
-            SoftDrinkProducts softdrink2 = new SoftDrinkProducts("7up", 13, "Softdrink", "Fresh");
+            SoftDrinkProducts softdrink0 = new SoftDrinkProducts("Pepsi", 8, "Softdrink", "Can", "Sweet");
+            SoftDrinkProducts softdrink1 = new SoftDrinkProducts("Fanta", 11, "Softdrink", "Bottle", "Sour");
+            SoftDrinkProducts softdrink2 = new SoftDrinkProducts("7up", 13, "Softdrink", "Carton", "Fresh");
 
             //List of toys name, price, type
-            ToyProducts toy0 = new ToyProducts("plane", 8, "Toy", "White");
-            ToyProducts toy1 = new ToyProducts("car", 11, "Toy", "Red");
-            ToyProducts toy2 = new ToyProducts("boat", 13, "Toy","Blue");
+            ToyProducts toy0 = new ToyProducts("plane", 8, "Toy", "White", "No");
+            ToyProducts toy1 = new ToyProducts("car", 11, "Toy", "Red", "Yes");
+            ToyProducts toy2 = new ToyProducts("boat", 13, "Toy","Blue", "No");
 
             //Listed products
             vendingMachine.addProduct(candy0);
@@ -141,13 +141,13 @@ namespace VendingMachine.Test
 
             //Act
             string actualResult_C0 = candy0.Examine();
-            string expecteResult_C0 = "One Snickers candy costs 10kr.Sugar content: 3g";
+            string expecteResult_C0 = "One Snickers candy costs 10kr.\n             Size: Small\n    Sugar content: 12";
 
             string actualResult_SD2 = softdrink2.Examine();
-            string expecteResult_SD2 = "One 7up softdrink costs 13kr.Tastes like Fresh";
+            string expecteResult_SD2 = "One 7up softdrink costs 13kr.\n    Tastes like Fresh";
 
             string actualResult_T1 = toy1.Examine();
-            string expecteResult_T1 = "One Red toycar costs 11kr.";
+            string expecteResult_T1 = "One Red toycar costs 11kr.\n    Needs batter: Yes";
 
             //Assert 
             Assert.Equal(expecteResult_C0, actualResult_C0);
@@ -162,19 +162,19 @@ namespace VendingMachine.Test
             VendingMachine.Model.VendingMachine vendingMachine = new Model.VendingMachine();
 
             //List of candy name, price, type
-            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy", "3g");
-            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy", "4g");
-            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy", "8g");
+            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy",  "Small", 6);
+            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy", "Medium", 15);
+            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy", "Big", 12);
 
             //List of softdrinks name, price, type
-            SoftDrinkProducts softdrink0 = new SoftDrinkProducts("Pepsi", 8, "Softdrink", "Sweet");
-            SoftDrinkProducts softdrink1 = new SoftDrinkProducts("Fanta", 11, "Softdrink", "Sour");
-            SoftDrinkProducts softdrink2 = new SoftDrinkProducts("7up", 13, "Softdrink", "Fresh");
+            SoftDrinkProducts softdrink0 = new SoftDrinkProducts("Pepsi", 8, "Softdrink", "Can", "Sweet");
+            SoftDrinkProducts softdrink1 = new SoftDrinkProducts("Fanta", 11, "Softdrink", "Bottle", "Sour");
+            SoftDrinkProducts softdrink2 = new SoftDrinkProducts("7up", 13, "Softdrink", "Carton", "Fresh");
 
             //List of toys name, price, type
-            ToyProducts toy0 = new ToyProducts("plane", 8, "Toy", "White");
-            ToyProducts toy1 = new ToyProducts("car", 11, "Toy", "Red");
-            ToyProducts toy2 = new ToyProducts("boat", 13, "Toy", "Blue");
+            ToyProducts toy0 = new ToyProducts("plane", 8, "Toy", "White", "No");
+            ToyProducts toy1 = new ToyProducts("car", 11, "Toy", "Red", "Yes");
+            ToyProducts toy2 = new ToyProducts("boat", 13, "Toy", "Blue", "No");
 
             //Listed products
             vendingMachine.addProduct(candy0);

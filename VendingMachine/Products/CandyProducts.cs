@@ -22,22 +22,26 @@ namespace VendingMachine.Products   //Product type
 
         //Propertys variabler
         string type;
-        string sugar;
+        int sugar;
+        string size;
         public string Type { get { return type; } set { type = value; } }
-        public string Sugar { get { return sugar; } set { sugar = value; } }
+        public int Sugar { get { return sugar; } set { sugar = value; } }
+        public string Size { get { return size; } set { size = value; } }
 
         //Constructor
-        public CandyProducts(string name, int price, string type, string sugar) : base(name, price)
+        public CandyProducts(string name, int price, string type, string size, int sugar) : base(name, price)
         {            
             Type = type;
+            Size = size;
             Sugar = sugar;
         }        
 
         //Metod (member) (Funktion)
         public new string Examine()
         {
-            return base.Examine() + $"One {Name} candy costs {Price}kr." +
-                                    $"Sugar content: {Sugar}";
+            return base.Examine() + $"One {Name} candy costs {Price}kr.\n" +
+                                    $"             Size: {size}\n" +
+                                    $"    Sugar content: {Sugar}";
         }
 
         public new string Use()

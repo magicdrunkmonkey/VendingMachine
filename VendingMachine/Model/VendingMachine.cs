@@ -65,7 +65,7 @@ namespace VendingMachine.Model
         //Metod (member) (Funktion)
         public Dictionary<int,int> EndTransaction()                  //Assignment requirement //Dictionary <int,int> 
         {
-            IDictionary<int, int> mValues = new Dictionary<int, int>();                    // moneyValue = { 1, 5, 10, 20, 50, 100, 500, 1000 };
+            IDictionary<int, int> mValues = new Dictionary<int, int>();   // moneyValue = { 1, 5, 10, 20, 50, 100, 500, 1000 };
 
             mValues.Add(1, 0);
             mValues.Add(5, 0);
@@ -80,6 +80,11 @@ namespace VendingMachine.Model
             int indexChangeReturn = moneyValue.Length-1;
             foreach(int kvp in moneyValue)
             {
+                mValues[moneyValue[indexChangeReturn]] = (moneyPool - moneyPool % moneyValue[indexChangeReturn]) / moneyValue[indexChangeReturn];
+                moneyPool = moneyPool % moneyValue[indexChangeReturn];
+                indexChangeReturn--;
+
+                //Attempt 2
                 //Console.WriteLine($"Returning {1} amount of {0}");
                 //Console.WriteLine($"{kvp.Key} kr: " + (moneyPool - moneyPool % kvp.Key) / kvp.Key);
 
@@ -88,15 +93,13 @@ namespace VendingMachine.Model
                 //moneyPool = moneyPool % 1000;             Calculating remainder without multiple 1000kr
                 //(moneyPool - moneyPool % 500) / 500);     Counting amounts of 500kr
                 //moneyPool = moneyPool % 500;              Calculating remainder without multiple 1000kr
-
-                mValues[moneyValue[indexChangeReturn]]= (moneyPool - moneyPool % moneyValue[indexChangeReturn]) / moneyValue[indexChangeReturn];
-                moneyPool = moneyPool % moneyValue[indexChangeReturn];
-                indexChangeReturn--;
             }
+            return (Dictionary<int, int>)mValues;
 
+            //Attempt 1
             //int returningMoney = moneyPool;             //Dictionary <1, "hur många?">
             //moneyPool = 0;
-            return (Dictionary<int, int>)mValues;
+            //return returningMoney;
             //throw new NotImplementedException();
         }
 

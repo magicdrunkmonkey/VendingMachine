@@ -11,20 +11,20 @@ namespace VendingMachine
 
             VendingMachine.Model.VendingMachine vendingMachine = new VendingMachine.Model.VendingMachine();
 
-            //List of candy name, price, type, sugar
-            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy", "3g");
-            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy", "4g");
-            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy", "7g");
+            //List of candy name, price, type, size, sugar
+            CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy", "Small", 8);
+            CandyProducts candy1 = new CandyProducts("Cloetta", 12, "Candy", "Medium", 4);
+            CandyProducts candy2 = new CandyProducts("Bounty", 9, "Candy", "Big", 7);
 
-            //List of softdrinks name, price, type
-            SoftDrinkProducts softdrink0 = new SoftDrinkProducts("Pepsi", 8, "Softdrink", "syrup");
-            SoftDrinkProducts softdrink1 = new SoftDrinkProducts("Fanta", 11,"Softdrink", "fruity");
-            SoftDrinkProducts softdrink2 = new SoftDrinkProducts("7up", 13, "Softdrink", "fresh");
+            //List of softdrinks name, price, type, beverageContainer, taste
+            SoftDrinkProducts softdrink0 = new SoftDrinkProducts("Pepsi", 8, "Softdrink", "Can", "syrup");
+            SoftDrinkProducts softdrink1 = new SoftDrinkProducts("Fanta", 11,"Softdrink", "Bottle", "fruity");
+            SoftDrinkProducts softdrink2 = new SoftDrinkProducts("7up", 13, "Softdrink", "Carton", "fresh");
 
-            //List of toys name, price, type
-            ToyProducts toy0 = new ToyProducts("plane", 8, "Toy", "blue");
-            ToyProducts toy1 = new ToyProducts("car", 11, "Toy", "red");
-            ToyProducts toy2 = new ToyProducts("boat", 13, "Toy", "green");
+            //List of toys name, price, type, color, batteryNeed
+            ToyProducts toy0 = new ToyProducts("plane", 8, "Toy", "blue", "No");
+            ToyProducts toy1 = new ToyProducts("car", 11, "Toy", "red", "Yes");
+            ToyProducts toy2 = new ToyProducts("boat", 13, "Toy", "green", "No");
 
             //Listed products
             vendingMachine.addProduct(candy0);

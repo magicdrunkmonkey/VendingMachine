@@ -112,7 +112,7 @@ namespace VendingMachine.Test
             vendingMachine.moneyPool = 0;
             int indexProductList = 2;
             string expectedValue = "Not enough money. Please insert.";
-            string actualValue = null;
+            //string actualValue = null;
 
             //Populate produktlist
             CandyProducts candy0 = new CandyProducts("Snickers", 10, "Candy", "Small", 3);
@@ -125,10 +125,10 @@ namespace VendingMachine.Test
             //Act            
             //Product bought = vendingMachine.Purchase(indexProductList);         //Buy from indexProductList at index=2
             //actualValue = bought.Name;
-            ArgumentException result = Assert.Throws<ArgumentException>(
+            ArgumentException actualResult = Assert.Throws<ArgumentException>(
                 () => vendingMachine.Purchase(indexProductList));
             //Assert
-            Assert.Equal(expectedValue, result.Message);
+            Assert.Equal(expectedValue, actualResult.Message);
 
             //Cleanup
             vendingMachine.moneyPool = 0;       //Reset moneyPool
